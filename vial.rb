@@ -5,21 +5,21 @@
 class Vial < Formula
   desc "The centralized secret vault for vibe coders"
   homepage "https://one-vial.org"
-  version "0.0.4"
+  version "0.0.5"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/cheesejaguar/vial/releases/download/v0.0.4/vial_0.0.4_darwin_amd64.tar.gz"
-      sha256 "e309475f52a03fd8561ada9a1e56bdde0bb3b3524353acffef1e0af5a2859b72"
+      url "https://github.com/cheesejaguar/vial/releases/download/v0.0.5/vial_0.0.5_darwin_amd64.tar.gz"
+      sha256 "42b1486a7b8d96d0a3ed7745f43659ef207eadff3f0e23eab6401e7f072b185c"
 
       define_method(:install) do
         bin.install "vial"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/cheesejaguar/vial/releases/download/v0.0.4/vial_0.0.4_darwin_arm64.tar.gz"
-      sha256 "35207e78e0710261d26e05b4da12846f2253e2e3990b73e0e608803533a22aed"
+      url "https://github.com/cheesejaguar/vial/releases/download/v0.0.5/vial_0.0.5_darwin_arm64.tar.gz"
+      sha256 "65db121c7bf0ea1a8a78135d09df17cf4ec2942d7ed9b91b424d79a131dbf547"
 
       define_method(:install) do
         bin.install "vial"
@@ -29,19 +29,24 @@ class Vial < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/cheesejaguar/vial/releases/download/v0.0.4/vial_0.0.4_linux_amd64.tar.gz"
-      sha256 "f8065b1e1d4cc8dde2f72bfc6cffcd66fd4b24d9999cab4776ed8be99ec1a66f"
+      url "https://github.com/cheesejaguar/vial/releases/download/v0.0.5/vial_0.0.5_linux_amd64.tar.gz"
+      sha256 "671f3106a86dd4842b169b582f4647a958790230b340b966774cb07245ae3a61"
       define_method(:install) do
         bin.install "vial"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/cheesejaguar/vial/releases/download/v0.0.4/vial_0.0.4_linux_arm64.tar.gz"
-      sha256 "422e099c1fd4b9dcae97fab0455c3b1fb123c3c8c3af45ebf4d4ccffe9e5484b"
+      url "https://github.com/cheesejaguar/vial/releases/download/v0.0.5/vial_0.0.5_linux_arm64.tar.gz"
+      sha256 "785643b91645b13fe322095746d7f2279b43700750e105947a8a884929c69f7f"
       define_method(:install) do
         bin.install "vial"
       end
     end
+  end
+
+  def post_install
+    # Remove quarantine attribute so unsigned binary runs on macOS
+    system_command "xattr", args: ["-d", "com.apple.quarantine", bin/"vial"], print_stderr: false
   end
 
   test do
