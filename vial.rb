@@ -5,21 +5,21 @@
 class Vial < Formula
   desc "The centralized secret vault for vibe coders"
   homepage "https://one-vial.org"
-  version "0.1.0"
+  version "0.1.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/cheesejaguar/vial/releases/download/v0.1.0/vial_0.1.0_darwin_amd64.tar.gz"
-      sha256 "d7df9e6452d506a6d006d3c6db7e8224094da88cac28ca40313a727af7a5ad3a"
+      url "https://github.com/cheesejaguar/vial/releases/download/v0.1.1/vial_0.1.1_darwin_amd64.tar.gz"
+      sha256 "9c9c6d1f612cdd68d77a37ecdea72e67294fa7e4124243f2bea9a836e4c97142"
 
       define_method(:install) do
         bin.install "vial"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/cheesejaguar/vial/releases/download/v0.1.0/vial_0.1.0_darwin_arm64.tar.gz"
-      sha256 "51d9f5408c49ec0e3f3839eb6fb3aa1987336b778be3af873a47ca79990140ed"
+      url "https://github.com/cheesejaguar/vial/releases/download/v0.1.1/vial_0.1.1_darwin_arm64.tar.gz"
+      sha256 "8f6279d69a6f660e3258cf31f3d25cae222e757e32ef9bf896022e4ef2f69ce2"
 
       define_method(:install) do
         bin.install "vial"
@@ -29,15 +29,15 @@ class Vial < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/cheesejaguar/vial/releases/download/v0.1.0/vial_0.1.0_linux_amd64.tar.gz"
-      sha256 "99a34100544ed3ddcdaa841bb8c79613406e0eaa2511a3cc6e376733b1d9839c"
+      url "https://github.com/cheesejaguar/vial/releases/download/v0.1.1/vial_0.1.1_linux_amd64.tar.gz"
+      sha256 "8b1f6e7e9ef504186069acfb38e884ee065ab7b1632d6456ec5a3ff6900285a9"
       define_method(:install) do
         bin.install "vial"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/cheesejaguar/vial/releases/download/v0.1.0/vial_0.1.0_linux_arm64.tar.gz"
-      sha256 "4c84aef6e8cc1748b098810e27ecd64f63c8e0807d2d5be821d2c770d1dc3e57"
+      url "https://github.com/cheesejaguar/vial/releases/download/v0.1.1/vial_0.1.1_linux_arm64.tar.gz"
+      sha256 "81d44843949704e77c166bbd6a1421ba744811aa76aac64fb955f1330aca7099"
       define_method(:install) do
         bin.install "vial"
       end
